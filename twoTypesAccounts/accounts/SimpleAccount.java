@@ -9,22 +9,26 @@ public class SimpleAccount extends Account {
         return balance;
     }
 
-// пополнение счета
+    // пополнение счета
     @Override
     public boolean add(long amount) {
-        balance += amount;
+        if (amount > 0) {
+            balance += amount;
+        }
         return true;
     }
-// покупка
+
+    // покупка
     @Override
     public boolean pay(long amount) {
-        if(balance >= amount) {
+        if (balance >= amount) {
             balance -= amount;
             return true;
         }
         return false;
     }
-// перевод
+
+    // перевод
     @Override
     public boolean transfer(Account account, long amount) {
         if (pay(amount)) {

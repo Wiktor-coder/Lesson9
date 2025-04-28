@@ -12,13 +12,15 @@ public abstract class Account {
         balance += amount;
         return true;
     }
+
     public boolean pay(long amount) {
-        if(balance >= amount) {
+        if (balance >= amount) {
             balance -= amount;
             return true;
         }
         return false;
     }
+
     public boolean transfer(Account account, long amount) {
         if (pay(amount)) {
             if (account.add(amount)) {
@@ -28,6 +30,6 @@ public abstract class Account {
             }
         }
         return false;
-    } 
+    }
 
 }
